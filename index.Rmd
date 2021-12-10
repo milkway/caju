@@ -2,6 +2,7 @@
 title: "Your Document Title"
 author: "Document Author"
 date: "`r Sys.Date()`"
+output_dir: "."
 output:
   prettydoc::html_pretty:
     theme: cayman
