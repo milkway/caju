@@ -1,46 +1,38 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "Your Document Title"
+author: "Document Author"
 date: "`r Sys.Date()`"
 output:
   prettydoc::html_pretty:
     theme: cayman
     highlight: github
-vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
-Vignettes are long form documentation commonly included in packages. Because
-they are part of the distribution of the package, they need to be as compact as
-possible. The `html_pretty` output format in package
-[**prettydoc**](https://github.com/yixuan/prettydoc/) , an alternative
-to `html_document` and `html_vignette` contained in the `rmarkdown` package,
-is able to generate small and nice HTML pages.
+## A New Output Format
 
-## Styles
+`html_pretty` in the [**prettydoc**](https://github.com/yixuan/prettydoc/)
+package is a new output format for creating HTML documents from R Markdown files.
+`html_pretty` is more lightweight compared to `html_document`, and is more
+stylish than `html_vignette` when creating package vignettes.
 
-Currently `html_pretty` supports three page themes, `cayman` (the default),
-`tactile`, and `architect`. And there are also two syntax highlight styles:
-`github` to mimic the syntax highlight on Github, and `vignette` that is used by
-`html_vignette`. If no highlight parameter is given, the default style created
-by Pandoc will be used.
+## New Styles
 
-The theme and highlight styles can be given in the document metadata,
+`html_pretty` currently supports three page themes (`cayman`, `tactile` and
+`architect`), and two syntax highlight styles (`github` and `vignette`).
+The theme and highlight styles can be specified in the document metadata,
 for example:
 
 ```yaml
 output:
   prettydoc::html_pretty:
-    theme: cayman
+    theme: architect
     highlight: github
 ```
 
-## Happy Knitting!
+## Your Familiar Tools
 
 Feel free to use the `knitr` infrastructure with dozens of tunable options in
-your package vignette.
+your document.
 
 ```{r fig.width=6, fig.height=6, fig.align='center'}
 set.seed(123)
@@ -52,7 +44,7 @@ head(x)
 smoothScatter(x, xlab = "x1", ylab = "x2")
 ```
 
-You can also include code snippets of languages other than R, but note that
+You can include code snippets of languages other than R, but note that
 the block header has no curly brackets around the language name.
 
 ```cpp
@@ -62,7 +54,7 @@ NumericVector timesTwo(NumericVector x) {
 }
 ```
 
-You can write math expressions, e.g. $Y = X\beta + \epsilon$,
+You can also write math expressions, e.g. $Y = X\beta + \epsilon$,
 footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
 
 ```{r, echo=FALSE, results='asis'}
@@ -74,4 +66,3 @@ knitr::kable(head(iris, 10))
 Please visit the [development page](https://github.com/yixuan/prettydoc/) of the 
 `prettydoc` package for latest updates and news. Comments, bug reports and
 pull requests are always welcome.
-
